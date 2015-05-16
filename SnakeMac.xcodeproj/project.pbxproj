@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		D34361271B07C7B400AC47E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D34361261B07C7B400AC47E3 /* AppDelegate.m */; };
 		D34361291B07C7B400AC47E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D34361281B07C7B400AC47E3 /* main.m */; };
-		D343612C1B07C7B400AC47E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D343612B1B07C7B400AC47E3 /* ViewController.m */; };
 		D343612E1B07C7B400AC47E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D343612D1B07C7B400AC47E3 /* Images.xcassets */; };
-		D34361311B07C7B400AC47E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D343612F1B07C7B400AC47E3 /* Main.storyboard */; };
 		D343613D1B07C7B400AC47E3 /* SnakeMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D343613C1B07C7B400AC47E3 /* SnakeMacTests.m */; };
+		D34361491B07D23800AC47E3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34361481B07D23800AC47E3 /* MainWindow.xib */; };
+		D343614B1B07D3E500AC47E3 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = D343614A1B07D3E500AC47E3 /* Food.m */; };
+		D343614F1B07D58400AC47E3 /* Snake.m in Sources */ = {isa = PBXBuildFile; fileRef = D343614E1B07D58400AC47E3 /* Snake.m */; };
+		D34361511B07D58F00AC47E3 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34361501B07D58F00AC47E3 /* MainWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +33,17 @@
 		D34361251B07C7B400AC47E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D34361261B07C7B400AC47E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D34361281B07C7B400AC47E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D343612A1B07C7B400AC47E3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D343612B1B07C7B400AC47E3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D343612D1B07C7B400AC47E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D34361301B07C7B400AC47E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D34361361B07C7B400AC47E3 /* SnakeMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnakeMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D343613B1B07C7B400AC47E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D343613C1B07C7B400AC47E3 /* SnakeMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnakeMacTests.m; sourceTree = "<group>"; };
+		D34361481B07D23800AC47E3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		D343614A1B07D3E500AC47E3 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		D343614C1B07D3F500AC47E3 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		D343614D1B07D57C00AC47E3 /* Snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
+		D343614E1B07D58400AC47E3 /* Snake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
+		D34361501B07D58F00AC47E3 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		D34361521B07D59B00AC47E3 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +87,13 @@
 			children = (
 				D34361251B07C7B400AC47E3 /* AppDelegate.h */,
 				D34361261B07C7B400AC47E3 /* AppDelegate.m */,
-				D343612A1B07C7B400AC47E3 /* ViewController.h */,
-				D343612B1B07C7B400AC47E3 /* ViewController.m */,
-				D343612D1B07C7B400AC47E3 /* Images.xcassets */,
-				D343612F1B07C7B400AC47E3 /* Main.storyboard */,
+				D34361521B07D59B00AC47E3 /* MainWindowController.h */,
+				D34361501B07D58F00AC47E3 /* MainWindowController.m */,
+				D34361481B07D23800AC47E3 /* MainWindow.xib */,
+				D343614A1B07D3E500AC47E3 /* Food.m */,
+				D343614C1B07D3F500AC47E3 /* Food.h */,
+				D343614D1B07D57C00AC47E3 /* Snake.h */,
+				D343614E1B07D58400AC47E3 /* Snake.m */,
 				D34361231B07C7B400AC47E3 /* Supporting Files */,
 			);
 			path = SnakeMac;
@@ -93,6 +102,7 @@
 		D34361231B07C7B400AC47E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D343612D1B07C7B400AC47E3 /* Images.xcassets */,
 				D34361241B07C7B400AC47E3 /* Info.plist */,
 				D34361281B07C7B400AC47E3 /* main.m */,
 			);
@@ -196,8 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34361491B07D23800AC47E3 /* MainWindow.xib in Resources */,
 				D343612E1B07C7B400AC47E3 /* Images.xcassets in Resources */,
-				D34361311B07C7B400AC47E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D343612C1B07C7B400AC47E3 /* ViewController.m in Sources */,
+				D34361511B07D58F00AC47E3 /* MainWindowController.m in Sources */,
+				D343614F1B07D58400AC47E3 /* Snake.m in Sources */,
+				D343614B1B07D3E500AC47E3 /* Food.m in Sources */,
 				D34361291B07C7B400AC47E3 /* main.m in Sources */,
 				D34361271B07C7B400AC47E3 /* AppDelegate.m in Sources */,
 			);
@@ -238,17 +250,6 @@
 			targetProxy = D34361371B07C7B400AC47E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D343612F1B07C7B400AC47E3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D34361301B07C7B400AC47E3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D343613E1B07C7B400AC47E3 /* Debug */ = {

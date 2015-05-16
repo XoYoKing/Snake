@@ -10,6 +10,8 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+    // main window of the game
+@property (weak) IBOutlet NSWindow *mainWindow;
 
 @end
 

@@ -14,6 +14,8 @@
 
 @implementation AppDelegate
 
+@synthesize mainWindow = _mainWindow;
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
 }
