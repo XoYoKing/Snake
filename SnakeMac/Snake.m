@@ -6,3 +6,16 @@
 //  Copyright (c) 2015 Alberto Quesada Aranda. All rights reserved.
 //
 
+#import "Snake.h"
+
+@implementation Snake
+
+@synthesize bodyLenght;
+
+-(id)initSnake {
+    
+    if(self = [super init]) {
+        
+    }
+    
+}

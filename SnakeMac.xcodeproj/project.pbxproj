@@ -44,6 +44,7 @@
 		D343614E1B07D58400AC47E3 /* Snake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
 		D34361501B07D58F00AC47E3 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		D34361521B07D59B00AC47E3 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		D3662FD61B07F78C00EB31C7 /* SnakeStateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnakeStateProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 				D343614D1B07D57C00AC47E3 /* Snake.h */,
 				D343614E1B07D58400AC47E3 /* Snake.m */,
 				D34361231B07C7B400AC47E3 /* Supporting Files */,
+				D3662FD61B07F78C00EB31C7 /* SnakeStateProtocol.h */,
 			);
 			path = SnakeMac;
 			sourceTree = "<group>";
@@ -408,6 +410,7 @@
 				D34361421B07C7B400AC47E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D34361431B07C7B400AC47E3 /* Build configuration list for PBXNativeTarget "SnakeMacTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +419,7 @@
 				D34361451B07C7B400AC47E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
