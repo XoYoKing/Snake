@@ -78,9 +78,24 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="9oJ-gz-wTy"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Drunken Snake" id="JIX-FI-Ge6">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Drunk Snake" id="JIX-FI-Ge6">
                                     <font key="font" size="74" name="Timber"/>
                                     <color key="textColor" red="0.11764705882352941" green="0.40392156862745099" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oye-fK-1WD">
+                                <rect key="frame" x="564" y="61" width="61" height="18"/>
+                                <buttonCell key="cell" type="check" title="Drunk" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mZK-Py-w4a">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" size="10" name="MANIFESTO"/>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7CR-u3-G1W">
+                                <rect key="frame" x="18" y="351" width="38" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drunk!" id="csd-fY-v8y">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -106,6 +121,8 @@
                         <connections>
                             <outlet property="buttonStart" destination="v14-Ts-8g2" id="G5y-qF-7Ye"/>
                             <outlet property="difficulty" destination="55J-Ux-Ndo" id="Hhp-eM-E36"/>
+                            <outlet property="drunk" destination="oye-fK-1WD" id="tbB-rR-3Vb"/>
+                            <outlet property="drunkLabel" destination="7CR-u3-G1W" id="tI6-sn-Ssf"/>
                             <outlet property="puntuation" destination="vwJ-ig-fUh" id="xzh-E8-Zt2"/>
                             <outlet property="recordLabel" destination="lyZ-la-IPF" id="SX1-r6-mmo"/>
                             <outlet property="recordP" destination="1aq-YR-bOX" id="OEd-CJ-vJg"/>

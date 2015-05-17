@@ -29,7 +29,7 @@
 @property (assign) IBOutlet NSTextField *puntuation;
 @property (assign) IBOutlet NSTextField *recordLabel;
 @property (assign) IBOutlet NSTextField *recordP;
-
-
+@property (assign) IBOutlet NSTextField *drunkLabel;
+@property (assign) IBOutlet NSButton *drunk;
 
 @end

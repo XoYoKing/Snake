@@ -19,7 +19,10 @@ enum {
 typedef NSUInteger SnakeDirection;
 typedef CGRect SnakeBody;
 
-@interface Snake : NSObject
+@interface Snake : NSObject {
+    int randomN;
+    int randomItera;
+}
 
 /*
     - use property and synthesize to automatically generate accesor methods
@@ -29,9 +32,12 @@ typedef CGRect SnakeBody;
 @property (nonatomic) id<SnakeStateProtocol> delegate;  // required function snakeDidDie
 @property (nonatomic) int bodyLength;   // body number
 @property (nonatomic) bool hasEaten;    // has eaten food
+@property (nonatomic) bool isDrunk;    // the snake is drunk
 @property (nonatomic) bool moveOrDie;   // move = 0 | die = 1
 @property (nonatomic) CGPoint head;     // head of the snake (x,y)
 @property (nonatomic) int puntuation;   // actual puntuation
+
+@property (nonatomic) bool checkedDrunk;   // can the snake get drunk?
 
 @property (nonatomic) SnakeDirection direction;     // next direction
 @property (nonatomic) NSMutableArray *body;         // position of each body part

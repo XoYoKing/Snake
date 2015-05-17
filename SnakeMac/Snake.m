@@ -25,6 +25,9 @@ static int const MAX_SIZE = 8;
         self.head = CGPointMake(10, 50);
         self.bodyLength = 5;
         self.puntuation = 0;
+        self.isDrunk = NO;
+        randomItera = 0;
+        randomN = arc4random_uniform(50);
         
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
@@ -38,8 +41,8 @@ static int const MAX_SIZE = 8;
 }
 
 -(void) initFood {
-    int x = arc4random_uniform(screenW/10);
-    int y = arc4random_uniform(screenH/10);
+    int x = arc4random_uniform((screenW-5)/10);
+    int y = arc4random_uniform((screenH-20)/10);
     
     self.food = [[Food alloc] initWithX:10*x andY:10*y];
 }
@@ -83,6 +86,9 @@ static int const MAX_SIZE = 8;
     
     [self detectState];
     
+    if(randomItera == randomN)
+        self.isDrunk = YES;
+    
 }
 
 -(void) detectState {
@@ -106,30 +112,54 @@ static int const MAX_SIZE = 8;
     }
     
     // check if head if out of screen bounds
-    if(hb.origin.x < 0 || hb.origin.x > screenW-10 || hb.origin.y < 0 || hb.origin.y > screenH-10)
+    if(hb.origin.x < 0 || hb.origin.x > screenW-5 || hb.origin.y < 0 || hb.origin.y > screenH-20)
       [self.delegate snakeDidDie];
     
 }
 
 - (void)didMoveToDirection:(SnakeDirection)sdirection
 {
+    randomItera++;
+    
+    if(self.isDrunk) {
+        randomN = arc4random_uniform(50);
+        randomItera = 0;
+        
+        if(sdirection == goDown)
+            sdirection = goLeft;
+        else if(sdirection == goUp)
+            sdirection = goRight;
+        else if(sdirection == goLeft)
+            sdirection = goDown;
+        else if(sdirection == goRight)
+            sdirection = goUp;
+    }
+
     //change the move direction
     switch (sdirection) {
         case goUp:
-            if (self.direction != goDown)       //when snake go down,ignore the key "W"
+            if (self.direction != goDown){       //when snake go down,ignore the key "W"
                 self.direction = goUp;
+                self.isDrunk = NO;
+            }
             break;
         case goDown:
-            if (self.direction != goUp)
+            if (self.direction != goUp) {
                 self.direction = goDown;
+                self.isDrunk = NO;
+            }
             break;
         case goLeft:
-            if (self.direction != goRight)
+            if (self.direction != goRight) {
                 self.direction = goLeft;
+                self.isDrunk = NO;
+            }
             break;
         case goRight:
-            if (self.direction != goLeft)
+            if (self.direction != goLeft) {
                 self.direction = goRight;
+                self.isDrunk = NO;
+            }
             break;
         default:
             break;

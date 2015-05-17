@@ -26,6 +26,7 @@
     
     [snake updateScreenSize];   // update screen size
     [snake initFood];           // set first food
+    snake.checkedDrunk = self.drunk.state; // can the snake get drunk?
     
     // auto call gamePlay function every 0.09 seconds
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
@@ -33,6 +34,12 @@
 }
 
 -(void)gamePlay {
+    
+    if(self.snake.isDrunk)
+        self.drunkLabel.hidden = NO;
+    else
+        self.drunkLabel.hidden = YES;
+    
     [self.puntuation setStringValue:[NSString stringWithFormat:@"%d", self.snake.puntuation]];
     [self.snake updateScreenSize];  // update screen size
     [self.snake moveSnake];         // move snake
@@ -44,6 +51,7 @@
     NSLog(@"startGame");
     
     self.puntuation.hidden = YES;
+    self.drunkLabel.hidden = YES;
     
     [self.recordP setStringValue:[NSString stringWithFormat:@"%ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"record"]]];
     
@@ -61,6 +69,7 @@
     self.recordLabel.hidden = YES;
     self.puntuation.hidden = NO;
     self.recordP.hidden = YES;
+    self.drunk.hidden = YES;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
@@ -97,6 +106,7 @@
     self.slider.hidden = NO;
     self.recordLabel.hidden = NO;
     self.recordP.hidden = NO;
+    self.drunk.hidden = NO;
     
 }
 
