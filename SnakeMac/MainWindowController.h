@@ -8,7 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import "SnakeStateProtocol.h"
+#import "Snake.h"
 
-@interface MainWindowController : NSView {
+@interface MainWindowController : NSView <SnakeStateProtocol> {
 
+    NSTimer *timer; // speed of the snake / difficulty of the game
+    
 }
+
+@property (nonatomic) Snake *snake; // snake object
+
+-(void)initGame; // start the game
+-(void)gameOver; // finish the game
+
+@end

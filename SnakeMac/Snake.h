@@ -17,6 +17,7 @@ enum {
     goUp = 3
 };
 typedef NSUInteger SnakeDirection;
+typedef CGRect SnakeBody;
 
 @interface Snake : NSObject
 
@@ -31,9 +32,16 @@ typedef NSUInteger SnakeDirection;
 @property (nonatomic) bool moveOrDie;   // move = 0 | die = 1
 @property (nonatomic) CGPoint head;     // head of the snake (x,y)
 
-@property (nonatomic) SnakeDirection direction;
-@property (nonatomic) NSMutableArray *body;
-@property (nonatomic) Food *food;
+@property (nonatomic) SnakeDirection direction;     // next direction
+@property (nonatomic) NSMutableArray *body;         // position of each body part
+@property (nonatomic) Food *food;                   // next food
+
+
+- (id)initSnake;
+- (void)initFood;
+- (void)moveSnake;
+- (void)detectState;
+- (void)didMoveToDirection:(SnakeDirection)sdirection;
 
 
 @end

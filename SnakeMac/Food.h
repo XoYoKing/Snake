@@ -10,10 +10,9 @@
 
 @interface Food : NSObject
 
-    // food rectangle
-@property CGRect foodRect;
+@property (nonatomic) CGRect foodRect;
 
-    // initialize food at given position (x,y)
+// initialize food at given position (x,y)
 - (id)initWithX:(int)x andY:(int)y;
 
 @end
