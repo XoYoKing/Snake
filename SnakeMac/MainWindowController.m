@@ -29,7 +29,7 @@
     
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.09 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
 }
 
 -(void)gamePlay {
@@ -89,6 +89,10 @@
     }
     if ([chars isEqualToString:@"d"]) {
         [self.snake didMoveToDirection:goRight];
+    }
+    if ([chars isEqualToString:@"n"]) {
+        [self gameOver];
+        [self initGame];
     }
 }
 
