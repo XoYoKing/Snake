@@ -13,7 +13,7 @@
 - (id)initWithX:(int)x andY:(int)y
 {
     if (self = [super init]) {
-        _foodRect = CGRectMake(x, y, 10, 10);         
+        _foodRect = CGRectMake(x, y, 10, 10);   // square of 10x10
     }
     return self;
 }

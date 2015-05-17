@@ -24,33 +24,40 @@
     snake.delegate = self;
     self.snake = snake;
     
-    [snake updateScreenSize];
-    [snake initFood];
+    [snake updateScreenSize];   // update screen size
+    [snake initFood];           // set first food
     
+    // auto call gamePlay function every 0.09 seconds
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:0.09 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
 }
 
 -(void)gamePlay {
-    [self.snake updateScreenSize];
-    [self.snake moveSnake];
-    [self setNeedsDisplay:YES];
+    [self.snake updateScreenSize];  // update screen size
+    [self.snake moveSnake];         // move snake
+    [self setNeedsDisplay:YES];     // refresh view
 }
 
+// init function
 - (void)awakeFromNib {
     NSLog(@"startGame");
     [self initGame];
 }
 
 -(void)gameOver {
-    NSLog(@"gameOver");
+    //NSLog(@"gameOver");
     if(timer) {
-        [timer invalidate];
+        [timer invalidate];     // set timer to 0
         timer = nil;
     }
 }
 
+-(void)restartGame {
+    NSLog(@"restartGame");
+    [self gameOver];
+    [self initGame];
+}
 
 - (void)drawRect:(NSRect)dirtyRect
 {
@@ -63,19 +70,24 @@
         NSRectFill(body);
     }
     
+    // set the image of the food
     NSImage *image = [NSImage imageNamed: @"beer.png"];
     if(image)
         [image drawInRect:self.snake.food.foodRect];
-    
-    //NSLog(@"%f", self.frame.size.height);
 }
 
 - (BOOL)isFlipped {return YES;} // let coordinates start on the upper-left
 - (BOOL)acceptsFirstResponder {return YES;} // allow view to accept key input events
 
+/*
+    ** GAME CONTOL **
+
+    - MOVE SNAKE  -> AWSD
+    - RESTART     -> N
+    -
+*/
 - (void)keyDown: (NSEvent *) event
 {
-    // the key ADWS for change the direction of the snake
     NSString *chars = [event characters];
     
     if ([chars isEqualToString:@"s"]) {
@@ -91,8 +103,7 @@
         [self.snake didMoveToDirection:goRight];
     }
     if ([chars isEqualToString:@"n"]) {
-        [self gameOver];
-        [self initGame];
+        [self restartGame];
     }
 }
 

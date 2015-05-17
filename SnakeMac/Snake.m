@@ -44,8 +44,8 @@ static int const MAX_SIZE = 50;
 }
 
 -(void)updateScreenSize {
-    screenH = mainWindow.frame.size.height-5;
-    screenW = mainWindow.frame.size.width-5;
+    screenH = mainWindow.frame.size.height;
+    screenW = mainWindow.frame.size.width;
 }
 
 -(void) moveSnake {
@@ -94,7 +94,7 @@ static int const MAX_SIZE = 50;
         [self initFood];
     }
     
-    if(hb.origin.x < 0 || hb.origin.x > screenW || hb.origin.y < 0 || hb.origin.y > screenH)
+    if(hb.origin.x < 0 || hb.origin.x > screenW-10 || hb.origin.y < 0 || hb.origin.y > screenH-10)
       [self.delegate snakeDidDie];
     
 }
