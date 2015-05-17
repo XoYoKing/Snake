@@ -86,6 +86,7 @@
     
     [prefs synchronize];
     
+    self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);
     [self.snake.body removeAllObjects];
     
     self.title.hidden = NO;

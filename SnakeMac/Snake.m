@@ -8,7 +8,7 @@
 
 #import "Snake.h"
 
-static int const MAX_SIZE = 100;
+static int const MAX_SIZE = 8;
 
 @implementation Snake {
     NSWindow *mainWindow;
@@ -90,12 +90,22 @@ static int const MAX_SIZE = 100;
     SnakeBody hb = [[self.body objectAtIndex:0] rectValue];
     // handle touch itself, touch wall, eat food
     
+    // check if head touch body
+    for(int i = 1; i < [self.body count]; i++) {
+        SnakeBody b = [[self.body objectAtIndex:i] rectValue];
+        if(CGRectEqualToRect(hb, b)) {
+            [self.delegate snakeDidDie];
+        }
+    }
+    
+    // check if snake is eating
     if(CGRectEqualToRect(hb, self.food.foodRect)) {
         self.hasEaten = YES;
         self.puntuation++;
         [self initFood];
     }
     
+    // check if head if out of screen bounds
     if(hb.origin.x < 0 || hb.origin.x > screenW-10 || hb.origin.y < 0 || hb.origin.y > screenH-10)
       [self.delegate snakeDidDie];
     
