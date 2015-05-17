@@ -64,8 +64,9 @@
         NSRectFill(body);
     }
     
-    [[NSColor blackColor] set];
-    NSRectFill(self.snake.food.foodRect);
+    NSImage *image = [NSImage imageNamed: @"apple.png"];
+    if(image)
+        [image drawInRect:self.snake.food.foodRect];
     
 }
 

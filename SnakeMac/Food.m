@@ -13,7 +13,7 @@
 - (id)initWithX:(int)x andY:(int)y
 {
     if (self = [super init]) {
-        _foodRect = CGRectMake(x, y, 10, 10);       //body width&height = 10
+        _foodRect = CGRectMake(x, y, 10, 10);         
     }
     return self;
 }
