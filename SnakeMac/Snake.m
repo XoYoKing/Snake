@@ -8,11 +8,12 @@
 
 #import "Snake.h"
 
-static int const screenWidth = 48;
-static int const screenHeight = 36;
 static int const MAX_SIZE = 50;
 
-@implementation Snake
+@implementation Snake {
+    NSWindow *mainWindow;
+    int screenH, screenW;
+}
 
 -(id) initSnake {
     
@@ -30,15 +31,21 @@ static int const MAX_SIZE = 50;
             SnakeBody b = CGRectMake(_head.x, _head.y-i*10, 10, 10);
             [self.body addObject:[NSValue valueWithRect:b]];
         }
+        mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
     }
     return self;
 }
 
 -(void) initFood {
-    int x = arc4random_uniform(screenWidth);
-    int y = arc4random_uniform(screenHeight);
+    int x = arc4random_uniform(screenW/10);
+    int y = arc4random_uniform(screenH/10);
     
     self.food = [[Food alloc] initWithX:10*x andY:10*y];
+}
+
+-(void)updateScreenSize {
+    screenH = mainWindow.frame.size.height-5;
+    screenW = mainWindow.frame.size.width-5;
 }
 
 -(void) moveSnake {
@@ -87,8 +94,8 @@ static int const MAX_SIZE = 50;
         [self initFood];
     }
     
-    if(hb.origin.x < 0 || hb.origin.x > screenWidth*10 | hb.origin.y < 0 | hb.origin.y > screenHeight*10)
-        [self.delegate snakeDidDie];
+    if(hb.origin.x < 0 || hb.origin.x > screenW || hb.origin.y < 0 || hb.origin.y > screenH)
+      [self.delegate snakeDidDie];
     
 }
 

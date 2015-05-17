@@ -40,6 +40,7 @@ typedef CGRect SnakeBody;
 - (id)initSnake;
 - (void)initFood;
 - (void)moveSnake;
+- (void)updateScreenSize;
 - (void)detectState;
 - (void)didMoveToDirection:(SnakeDirection)sdirection;
 

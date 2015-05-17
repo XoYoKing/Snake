@@ -20,6 +20,7 @@
 		D3AEAB131B08B2A4006E2403 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AEAB121B08B2A4006E2403 /* Foundation.framework */; };
 		D3AEAB151B08B2B5006E2403 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AEAB141B08B2B5006E2403 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D3AEAB191B08CF46006E2403 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = D3AEAB181B08CF46006E2403 /* apple.png */; };
+		D3AEAB1B1B08D055006E2403 /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = D3AEAB1A1B08D055006E2403 /* beer.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D3AEAB121B08B2A4006E2403 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D3AEAB141B08B2B5006E2403 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D3AEAB181B08CF46006E2403 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
+		D3AEAB1A1B08D055006E2403 /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		D3AEAB171B08CF3A006E2403 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D3AEAB1A1B08D055006E2403 /* beer.png */,
 				D3AEAB181B08CF46006E2403 /* apple.png */,
 			);
 			name = Resources;
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3AEAB1B1B08D055006E2403 /* beer.png in Resources */,
 				D3AEAB191B08CF46006E2403 /* apple.png in Resources */,
 				D34361491B07D23800AC47E3 /* MainMenu.xib in Resources */,
 				D343612E1B07C7B400AC47E3 /* Images.xcassets in Resources */,

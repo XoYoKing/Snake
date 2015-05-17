@@ -14,7 +14,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         NSLog(@"startGame");
-
         [self initGame];
     }
     return self;
@@ -24,7 +23,8 @@
     Snake *snake = [[Snake alloc] initSnake];
     snake.delegate = self;
     self.snake = snake;
-
+    
+    [snake updateScreenSize];
     [snake initFood];
     
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
@@ -33,19 +33,18 @@
 }
 
 -(void)gamePlay {
+    [self.snake updateScreenSize];
     [self.snake moveSnake];
     [self setNeedsDisplay:YES];
 }
 
-- (void)awakeFromNib
-{
-    printf("debug B\n");
+- (void)awakeFromNib {
+    NSLog(@"startGame");
     [self initGame];
 }
 
 -(void)gameOver {
     NSLog(@"gameOver");
-
     if(timer) {
         [timer invalidate];
         timer = nil;
@@ -64,10 +63,11 @@
         NSRectFill(body);
     }
     
-    NSImage *image = [NSImage imageNamed: @"apple.png"];
+    NSImage *image = [NSImage imageNamed: @"beer.png"];
     if(image)
         [image drawInRect:self.snake.food.foodRect];
     
+    //NSLog(@"%f", self.frame.size.height);
 }
 
 - (BOOL)isFlipped {return YES;} // let coordinates start on the upper-left

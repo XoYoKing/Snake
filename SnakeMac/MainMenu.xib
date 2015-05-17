@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
@@ -15,16 +15,21 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="109" y="131" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="b2g-HC-TNb">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="2xE-hC-kVB" customClass="MainWindowController">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="2xE-hC-kVB" customClass="MainWindowController">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2xE-hC-kVB" secondAttribute="bottom" id="2EZ-ED-qmn"/>
+                    <constraint firstItem="2xE-hC-kVB" firstAttribute="leading" secondItem="b2g-HC-TNb" secondAttribute="leading" id="TFH-bW-fln"/>
+                    <constraint firstAttribute="trailing" secondItem="2xE-hC-kVB" secondAttribute="trailing" id="dgi-xe-d6d"/>
+                    <constraint firstItem="2xE-hC-kVB" firstAttribute="top" secondItem="b2g-HC-TNb" secondAttribute="top" id="nlS-mq-UQK"/>
+                </constraints>
             </view>
             <point key="canvasLocation" x="258" y="105"/>
         </window>
