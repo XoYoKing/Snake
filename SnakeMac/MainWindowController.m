@@ -43,6 +43,8 @@
 - (void)awakeFromNib {
     NSLog(@"startGame");
     
+    self.puntuation.hidden = YES;
+    
     [self.recordP setStringValue:[NSString stringWithFormat:@"%ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"record"]]];
     
     [self setWantsLayer:YES];
@@ -101,7 +103,7 @@
 -(void)restartGame {
     NSLog(@"restartGame");
     [self gameOver];
-    [self initGame];
+    //[self initGame];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -127,29 +129,42 @@
 /*
     ** GAME CONTOL **
 
-    - MOVE SNAKE  -> AWSD
+    - MOVE SNAKE  -> Arrows
     - RESTART     -> N
     -
 */
 - (void)keyDown: (NSEvent *) event
 {
-    NSString *chars = [event characters];
+    NSString *const character = [event charactersIgnoringModifiers];
+    unichar const code = [character characterAtIndex:0];
     
-    if ([chars isEqualToString:@"s"]) {
-        [self.snake didMoveToDirection:goDown];
+    switch (code)
+    {
+        case NSUpArrowFunctionKey:
+        {
+            [self.snake didMoveToDirection:goUp];
+            break;
+        }
+        case NSDownArrowFunctionKey:
+        {
+            [self.snake didMoveToDirection:goDown];
+            break;
+        }
+        case NSLeftArrowFunctionKey:
+        {
+            [self.snake didMoveToDirection:goLeft];
+            break;
+        }
+        case NSRightArrowFunctionKey:
+        {
+            [self.snake didMoveToDirection:goRight];
+            break;
+        }
     }
-    if ([chars isEqualToString:@"w"]) {
-        [self.snake didMoveToDirection:goUp];
-    }
-    if ([chars isEqualToString:@"a"]) {
-        [self.snake didMoveToDirection:goLeft];
-    }
-    if ([chars isEqualToString:@"d"]) {
-        [self.snake didMoveToDirection:goRight];
-    }
-    if ([chars isEqualToString:@"n"]) {
+    if ([character isEqualToString:@"n"]) {
         [self restartGame];
     }
+
 }
 
 #pragma mark SnakeStateProtocol delegate
