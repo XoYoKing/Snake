@@ -14,14 +14,52 @@
         <window title="Snake" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="pQW-hn-58L" userLabel="Snake">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="109" y="131" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="contentRect" x="109" y="131" width="620" height="374"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="b2g-HC-TNb">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="-1" width="620" height="374"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="2xE-hC-kVB" customClass="MainWindowController">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="620" height="374"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIi-ue-9nt">
+                                <rect key="frame" x="68" y="228" width="484" height="106"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Drunken Snake" id="JIX-FI-Ge6">
+                                    <font key="font" size="74" name="Timber"/>
+                                    <color key="textColor" red="0.11764705882352941" green="0.40392156862745099" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NA4-2u-PBM">
+                                <rect key="frame" x="141" y="58" width="339" height="21"/>
+                                <sliderCell key="cell" state="on" alignment="left" minValue="3" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="MMs-Im-Qf7"/>
+                            </slider>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55J-Ux-Ndo">
+                                <rect key="frame" x="260" y="85" width="100" height="24"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dificulty" id="axX-kI-2hh">
+                                    <font key="font" size="17" name="MANIFESTO"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v14-Ts-8g2">
+                                <rect key="frame" x="248" y="166" width="125" height="42"/>
+                                <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T6M-D5-l9b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="21" name="MANIFESTO"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startGameButton:" target="2xE-hC-kVB" id="NAO-dx-EKj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <connections>
+                            <outlet property="buttonStart" destination="v14-Ts-8g2" id="G5y-qF-7Ye"/>
+                            <outlet property="difficulty" destination="55J-Ux-Ndo" id="Hhp-eM-E36"/>
+                            <outlet property="slider" destination="NA4-2u-PBM" id="30j-0g-kAq"/>
+                            <outlet property="title" destination="eIi-ue-9nt" id="8h3-gQ-pPJ"/>
+                        </connections>
                     </customView>
                 </subviews>
                 <constraints>
@@ -31,7 +69,7 @@
                     <constraint firstItem="2xE-hC-kVB" firstAttribute="top" secondItem="b2g-HC-TNb" secondAttribute="top" id="nlS-mq-UQK"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="258" y="105"/>
+            <point key="canvasLocation" x="328" y="157"/>
         </window>
         <customObject id="nRj-A2-1eD" customClass="AppDelegate">
             <connections>
@@ -653,5 +691,6 @@
                 </menuItem>
             </items>
         </menu>
+        <userDefaultsController representsSharedInstance="YES" id="PMD-Wc-aPC"/>
     </objects>
 </document>

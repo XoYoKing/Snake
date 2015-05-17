@@ -8,7 +8,7 @@
 
 #import "Snake.h"
 
-static int const MAX_SIZE = 50;
+static int const MAX_SIZE = 100;
 
 @implementation Snake {
     NSWindow *mainWindow;

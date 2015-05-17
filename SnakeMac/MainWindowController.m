@@ -30,7 +30,6 @@
     // auto call gamePlay function every 0.09 seconds
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.09 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
 }
 
 -(void)gamePlay {
@@ -42,7 +41,23 @@
 // init function
 - (void)awakeFromNib {
     NSLog(@"startGame");
+    
+    [self setWantsLayer:YES];
+    self.layer.backgroundColor = [[NSColor colorWithRed:0.698 green:0.859 blue:0.749 alpha:1] CGColor]; /*#247ba0*/
+    
+}
+
+- (IBAction)startGameButton:(id)pId {
+    
+    self.title.hidden = YES;
+    self.buttonStart.hidden = YES;
+    self.difficulty.hidden = YES;
+    self.slider.hidden = YES;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
+    
     [self initGame];
+    
 }
 
 -(void)gameOver {
@@ -51,6 +66,12 @@
         [timer invalidate];     // set timer to 0
         timer = nil;
     }
+    
+    self.title.hidden = NO;
+    self.buttonStart.hidden = NO;
+    self.difficulty.hidden = NO;
+    self.slider.hidden = NO;
+    
 }
 
 -(void)restartGame {
