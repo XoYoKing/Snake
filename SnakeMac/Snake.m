@@ -24,6 +24,7 @@ static int const MAX_SIZE = 100;
         self.hasEaten = NO;
         self.head = CGPointMake(10, 50);
         self.bodyLength = 5;
+        self.puntuation = 0;
         
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
@@ -91,6 +92,7 @@ static int const MAX_SIZE = 100;
     
     if(CGRectEqualToRect(hb, self.food.foodRect)) {
         self.hasEaten = YES;
+        self.puntuation++;
         [self initFood];
     }
     

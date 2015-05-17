@@ -14,6 +14,7 @@
 @interface MainWindowController : NSView <SnakeStateProtocol> {
 
     NSTimer *timer; // speed of the snake --> difficulty of the game
+    NSInteger record;  // top record
     
 }
 
@@ -27,5 +28,10 @@
 @property (assign) IBOutlet NSTextField *difficulty;
 @property (assign) IBOutlet NSButton *buttonStart;
 @property (assign) IBOutlet NSSlider *slider;
+@property (assign) IBOutlet NSTextField *puntuation;
+@property (assign) IBOutlet NSTextField *actualLabel;
+@property (assign) IBOutlet NSTextField *recordLabel;
+
+
 
 @end

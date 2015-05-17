@@ -31,6 +31,7 @@ typedef CGRect SnakeBody;
 @property (nonatomic) bool hasEaten;    // has eaten food
 @property (nonatomic) bool moveOrDie;   // move = 0 | die = 1
 @property (nonatomic) CGPoint head;     // head of the snake (x,y)
+@property (nonatomic) int puntuation;   // actual puntuation
 
 @property (nonatomic) SnakeDirection direction;     // next direction
 @property (nonatomic) NSMutableArray *body;         // position of each body part

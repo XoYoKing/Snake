@@ -33,6 +33,7 @@
 }
 
 -(void)gamePlay {
+    [self.puntuation setStringValue:[NSString stringWithFormat:@"%d", self.snake.puntuation]];
     [self.snake updateScreenSize];  // update screen size
     [self.snake moveSnake];         // move snake
     [self setNeedsDisplay:YES];     // refresh view
@@ -41,6 +42,8 @@
 // init function
 - (void)awakeFromNib {
     NSLog(@"startGame");
+    
+    record =[[NSUserDefaults standardUserDefaults] integerForKey:@"record"];
     
     [self setWantsLayer:YES];
     self.layer.backgroundColor = [[NSColor colorWithRed:0.698 green:0.859 blue:0.749 alpha:1] CGColor]; /*#247ba0*/
@@ -53,6 +56,9 @@
     self.buttonStart.hidden = YES;
     self.difficulty.hidden = YES;
     self.slider.hidden = YES;
+    self.actualLabel.hidden = YES;
+    self.recordLabel.hidden = YES;
+    self.puntuation.hidden = NO;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
@@ -66,6 +72,8 @@
         [timer invalidate];     // set timer to 0
         timer = nil;
     }
+    
+    [self.snake.body removeAllObjects];
     
     self.title.hidden = NO;
     self.buttonStart.hidden = NO;

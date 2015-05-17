@@ -39,7 +39,7 @@
                                 <rect key="frame" x="260" y="85" width="100" height="24"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dificulty" id="axX-kI-2hh">
                                     <font key="font" size="17" name="MANIFESTO"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -53,10 +53,41 @@
                                     <action selector="startGameButton:" target="2xE-hC-kVB" id="NAO-dx-EKj"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5GA-fl-UvK">
+                                <rect key="frame" x="518" y="37" width="70" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Actual :" id="it7-Ng-oQA">
+                                    <font key="font" size="13" name="MANIFESTO"/>
+                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-la-IPF">
+                                <rect key="frame" x="511" y="10" width="77" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Record :" id="COa-3u-Wkh">
+                                    <font key="font" size="13" name="MANIFESTO"/>
+                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-ig-fUh">
+                                <rect key="frame" x="600" y="349" width="12" height="20"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="QJ4-qj-XIw">
+                                    <font key="font" size="13" name="HelveticaNeue-Bold"/>
+                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vwJ-ig-fUh" secondAttribute="trailing" constant="10" id="Iqm-UZ-FV8"/>
+                            <constraint firstItem="vwJ-ig-fUh" firstAttribute="top" secondItem="2xE-hC-kVB" secondAttribute="top" constant="5" id="NZU-Ya-Nc4"/>
+                        </constraints>
                         <connections>
+                            <outlet property="actualLabel" destination="5GA-fl-UvK" id="0P9-Ii-00d"/>
                             <outlet property="buttonStart" destination="v14-Ts-8g2" id="G5y-qF-7Ye"/>
                             <outlet property="difficulty" destination="55J-Ux-Ndo" id="Hhp-eM-E36"/>
+                            <outlet property="puntuation" destination="vwJ-ig-fUh" id="xzh-E8-Zt2"/>
+                            <outlet property="recordLabel" destination="lyZ-la-IPF" id="SX1-r6-mmo"/>
                             <outlet property="slider" destination="NA4-2u-PBM" id="30j-0g-kAq"/>
                             <outlet property="title" destination="eIi-ue-9nt" id="8h3-gQ-pPJ"/>
                         </connections>
@@ -692,5 +723,14 @@
             </items>
         </menu>
         <userDefaultsController representsSharedInstance="YES" id="PMD-Wc-aPC"/>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="NDN-7P-ehx">
+            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="vyE-2H-7gB">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+        </textField>
     </objects>
 </document>
