@@ -13,6 +13,8 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        NSLog(@"startGame");
+
         [self initGame];
     }
     return self;
@@ -22,7 +24,7 @@
     Snake *snake = [[Snake alloc] initSnake];
     snake.delegate = self;
     self.snake = snake;
-    
+
     [snake initFood];
     
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
@@ -35,7 +37,15 @@
     [self setNeedsDisplay:YES];
 }
 
+- (void)awakeFromNib
+{
+    printf("debug B\n");
+    [self initGame];
+}
+
 -(void)gameOver {
+    NSLog(@"gameOver");
+
     if(timer) {
         [timer invalidate];
         timer = nil;

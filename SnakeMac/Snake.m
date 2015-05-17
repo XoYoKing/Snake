@@ -87,7 +87,7 @@ static int const MAX_SIZE = 50;
         [self initFood];
     }
     
-    if(hb.origin.x < 0 || hb.origin.x > screenWidth | hb.origin.y < 0 | hb.origin.y > screenHeight)
+    if(hb.origin.x < 0 || hb.origin.x > screenWidth*10 | hb.origin.y < 0 | hb.origin.y > screenHeight*10)
         [self.delegate snakeDidDie];
     
 }
