@@ -43,7 +43,7 @@
 - (void)awakeFromNib {
     NSLog(@"startGame");
     
-    record =[[NSUserDefaults standardUserDefaults] integerForKey:@"record"];
+    [self.recordP setStringValue:[NSString stringWithFormat:@"%ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"record"]]];
     
     [self setWantsLayer:YES];
     self.layer.backgroundColor = [[NSColor colorWithRed:0.698 green:0.859 blue:0.749 alpha:1] CGColor]; /*#247ba0*/
@@ -56,9 +56,9 @@
     self.buttonStart.hidden = YES;
     self.difficulty.hidden = YES;
     self.slider.hidden = YES;
-    self.actualLabel.hidden = YES;
     self.recordLabel.hidden = YES;
     self.puntuation.hidden = NO;
+    self.recordP.hidden = YES;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
@@ -73,12 +73,27 @@
         timer = nil;
     }
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int prev = (int)[prefs integerForKey:@"record"];
+    
+    if(prev < self.snake.puntuation) {
+        [prefs setInteger:self.snake.puntuation forKey:@"record"];
+        [self.recordP setStringValue:[NSString stringWithFormat:@"%d", self.snake.puntuation]];
+    }
+    
+    if(![prefs objectForKey:@"record"])
+        [prefs setInteger:0 forKey:@"record"];
+    
+    [prefs synchronize];
+    
     [self.snake.body removeAllObjects];
     
     self.title.hidden = NO;
     self.buttonStart.hidden = NO;
     self.difficulty.hidden = NO;
     self.slider.hidden = NO;
+    self.recordLabel.hidden = NO;
+    self.recordP.hidden = NO;
     
 }
 
