@@ -33,8 +33,6 @@ typedef CGRect SnakeBody;
 @property (nonatomic) int bodyLength;   // body number
 @property (nonatomic) bool hasEaten;    // has eaten food
 @property (nonatomic) bool isDrunk;    // the snake is drunk
-@property (nonatomic) bool moveOrDie;   // move = 0 | die = 1
-@property (nonatomic) CGPoint head;     // head of the snake (x,y)
 @property (nonatomic) int puntuation;   // actual puntuation
 
 @property (nonatomic) bool checkedDrunk;   // can the snake get drunk?

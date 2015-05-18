@@ -20,9 +20,7 @@ static int const MAX_SIZE = 8;
     self = [super init];
     if(self) {
         self.direction = goDown;
-        self.moveOrDie = YES;
         self.hasEaten = NO;
-        self.head = CGPointMake(10, 50);
         self.bodyLength = 5;
         self.puntuation = 0;
         self.isDrunk = NO;
@@ -32,7 +30,7 @@ static int const MAX_SIZE = 8;
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
         for(int i = 0; i < self.bodyLength; i++) {
-            SnakeBody b = CGRectMake(_head.x, _head.y-i*10, 10, 10);
+            SnakeBody b = CGRectMake(10, 50-i*10, 10, 10);
             [self.body addObject:[NSValue valueWithRect:b]];
         }
         mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
@@ -86,7 +84,7 @@ static int const MAX_SIZE = 8;
     
     [self detectState];
     
-    if(randomItera == randomN)
+    if(randomItera == randomN && self.checkedDrunk)
         self.isDrunk = YES;
     
 }
@@ -101,6 +99,7 @@ static int const MAX_SIZE = 8;
         SnakeBody b = [[self.body objectAtIndex:i] rectValue];
         if(CGRectEqualToRect(hb, b)) {
             [self.delegate snakeDidDie];
+            NSLog(@"head touch body");
         }
     }
     
@@ -112,8 +111,9 @@ static int const MAX_SIZE = 8;
     }
     
     // check if head if out of screen bounds
-    if(hb.origin.x < 0 || hb.origin.x > screenW-5 || hb.origin.y < 0 || hb.origin.y > screenH-20)
-      [self.delegate snakeDidDie];
+    if(hb.origin.x < 0 || hb.origin.x > screenW-5 || hb.origin.y < 0 || hb.origin.y > screenH-20) {
+        [self.delegate snakeDidDie];
+    }
     
 }
 

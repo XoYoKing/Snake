@@ -84,8 +84,11 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oye-fK-1WD">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="oye-fK-1WD">
                                 <rect key="frame" x="564" y="61" width="61" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="wq1-PV-Wie"/>
+                                </constraints>
                                 <buttonCell key="cell" type="check" title="Drunk" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mZK-Py-w4a">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" size="10" name="MANIFESTO"/>
@@ -114,8 +117,10 @@
                             <constraint firstItem="vwJ-ig-fUh" firstAttribute="top" secondItem="2xE-hC-kVB" secondAttribute="top" constant="5" id="NZU-Ya-Nc4"/>
                             <constraint firstItem="NA4-2u-PBM" firstAttribute="top" secondItem="55J-Ux-Ndo" secondAttribute="bottom" constant="8" symbolic="YES" id="W6u-mG-ekM"/>
                             <constraint firstItem="eIi-ue-9nt" firstAttribute="top" secondItem="2xE-hC-kVB" secondAttribute="top" constant="40" id="YfF-oO-aIN"/>
+                            <constraint firstItem="oye-fK-1WD" firstAttribute="top" secondItem="NA4-2u-PBM" secondAttribute="top" id="hVV-L5-N7N"/>
                             <constraint firstAttribute="trailing" secondItem="lyZ-la-IPF" secondAttribute="trailing" constant="34" id="pj1-XI-gbq"/>
                             <constraint firstItem="eIi-ue-9nt" firstAttribute="centerX" secondItem="NA4-2u-PBM" secondAttribute="centerX" id="qOe-GZ-eNW"/>
+                            <constraint firstItem="oye-fK-1WD" firstAttribute="leading" secondItem="NA4-2u-PBM" secondAttribute="trailing" constant="22" id="tBv-DD-YqY"/>
                             <constraint firstAttribute="centerX" secondItem="55J-Ux-Ndo" secondAttribute="centerX" id="zwL-wp-hAs"/>
                         </constraints>
                         <connections>

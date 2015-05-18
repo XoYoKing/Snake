@@ -27,6 +27,7 @@
     [snake updateScreenSize];   // update screen size
     [snake initFood];           // set first food
     snake.checkedDrunk = self.drunk.state; // can the snake get drunk?
+    moveDone = NO;  // check if snake has moved
     
     // auto call gamePlay function every 0.09 seconds
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
@@ -43,6 +44,7 @@
     [self.puntuation setStringValue:[NSString stringWithFormat:@"%d", self.snake.puntuation]];
     [self.snake updateScreenSize];  // update screen size
     [self.snake moveSnake];         // move snake
+    moveDone = YES;
     [self setNeedsDisplay:YES];     // refresh view
 }
 
@@ -141,33 +143,54 @@
 
     - MOVE SNAKE  -> Arrows
     - RESTART     -> N
-    -
+ 
+ 
+    Problem: if user press up and left when snake is going right then die
+    snake direction is assigned to up so it's allowed to turn left but head of snake is still
+    on the same space it was when user press up
+ 
+    Solution: 
+        - Use timer to wait until next move is done
+        -
+ 
 */
 - (void)keyDown: (NSEvent *) event
 {
     NSString *const character = [event charactersIgnoringModifiers];
     unichar const code = [character characterAtIndex:0];
-    
+
     switch (code)
     {
         case NSUpArrowFunctionKey:
         {
-            [self.snake didMoveToDirection:goUp];
+            if(moveDone) {
+                [self.snake didMoveToDirection:goUp];
+                moveDone = NO;
+            }
             break;
         }
         case NSDownArrowFunctionKey:
         {
-            [self.snake didMoveToDirection:goDown];
+            if(moveDone) {
+                [self.snake didMoveToDirection:goDown];
+                moveDone = NO;
+            }
             break;
         }
         case NSLeftArrowFunctionKey:
         {
-            [self.snake didMoveToDirection:goLeft];
+            if(moveDone) {
+                [self.snake didMoveToDirection:goLeft];
+                moveDone = NO;
+            }
             break;
         }
         case NSRightArrowFunctionKey:
         {
-            [self.snake didMoveToDirection:goRight];
+            if(moveDone) {
+                [self.snake didMoveToDirection:goRight];
+                moveDone = NO;
+            }
             break;
         }
     }

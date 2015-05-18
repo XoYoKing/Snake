@@ -14,6 +14,7 @@
 @interface MainWindowController : NSView <SnakeStateProtocol> {
 
     NSTimer *timer; // speed of the snake --> difficulty of the game
+    bool moveDone;  // did snake already move?
     
 }
 
