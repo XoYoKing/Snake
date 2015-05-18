@@ -29,7 +29,6 @@
     snake.checkedDrunk = self.drunk.state; // can the snake get drunk?
     moveDone = NO;  // check if snake has moved
     
-    // auto call gamePlay function every 0.09 seconds
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
     
 }

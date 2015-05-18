@@ -8,7 +8,10 @@
 
 #import "Snake.h"
 
-static int const MAX_SIZE = 8;
+static int const MAX_SIZE = 80;     // max size of the body
+static int const RANDOM_DRUNK = 70; // how often is the snake drunk?
+static int const INITIAL_BODY_LENGTH = 5;   // initial size of the body
+static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 
 @implementation Snake {
     NSWindow *mainWindow;
@@ -21,16 +24,16 @@ static int const MAX_SIZE = 8;
     if(self) {
         self.direction = goDown;
         self.hasEaten = NO;
-        self.bodyLength = 5;
+        self.bodyLength = INITIAL_BODY_LENGTH;
         self.puntuation = 0;
         self.isDrunk = NO;
         randomItera = -1;
-        randomN = arc4random_uniform(50);
+        randomN = arc4random_uniform(RANDOM_DRUNK);
         
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
         for(int i = 0; i < self.bodyLength; i++) {
-            SnakeBody b = CGRectMake(10, 50-i*10, 10, 10);
+            SnakeBody b = CGRectMake(10, 50-i*10, BODY_SIZE, BODY_SIZE);
             [self.body addObject:[NSValue valueWithRect:b]];
         }
         mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
@@ -39,12 +42,13 @@ static int const MAX_SIZE = 8;
 }
 
 -(void) initFood {
-    int x = arc4random_uniform((screenW-5)/10);
-    int y = arc4random_uniform((screenH-20)/10);
+    int x = arc4random_uniform((screenW-5)/10)*10;
+    int y = arc4random_uniform((screenH-20)/10)*10;
     
-    self.food = [[Food alloc] initWithX:10*x andY:10*y];
+    self.food = [[Food alloc] initWithX:x andY:y];
 }
 
+// if user resizes window
 -(void)updateScreenSize {
     screenH = mainWindow.frame.size.height;
     screenW = mainWindow.frame.size.width;
@@ -56,7 +60,7 @@ static int const MAX_SIZE = 8;
     CGPoint hp = hb.origin;
     CGPoint p;
     
-    if(!self.hasEaten)
+    if(!self.hasEaten || [self.body count] > MAX_SIZE)
         [self.body removeLastObject];
     else
         self.hasEaten = NO;
@@ -64,22 +68,22 @@ static int const MAX_SIZE = 8;
     //add a new snake head
     switch (self.direction) {
         case goUp:
-            p = CGPointMake(hp.x , hp.y - 10);
+            p = CGPointMake(hp.x , hp.y - BODY_SIZE);
             break;
         case goDown:
-            p = CGPointMake(hp.x , hp.y + 10);
+            p = CGPointMake(hp.x , hp.y + BODY_SIZE);
             break;
         case goLeft:
-            p = CGPointMake(hp.x - 10, hp.y);
+            p = CGPointMake(hp.x - BODY_SIZE, hp.y);
             break;
         case goRight:
-            p = CGPointMake(hp.x + 10, hp.y);
+            p = CGPointMake(hp.x + BODY_SIZE, hp.y);
             break;
         default:
             break;
     }
     
-    SnakeBody b = CGRectMake(p.x, p.y, 10, 10);
+    SnakeBody b = CGRectMake(p.x, p.y, BODY_SIZE, BODY_SIZE);
     [self.body insertObject:[NSValue valueWithRect:b] atIndex:0];
     
     [self detectState];
@@ -125,7 +129,7 @@ static int const MAX_SIZE = 8;
     }
     
     if(self.isDrunk) {
-        randomN = arc4random_uniform(50);
+        randomN = arc4random_uniform(RANDOM_DRUNK);
         randomItera = -1;
         
         if(self.direction == goDown || self.direction == goUp) {
