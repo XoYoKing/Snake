@@ -24,7 +24,7 @@ static int const MAX_SIZE = 8;
         self.bodyLength = 5;
         self.puntuation = 0;
         self.isDrunk = NO;
-        randomItera = 0;
+        randomItera = -1;
         randomN = arc4random_uniform(50);
         
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
@@ -119,20 +119,28 @@ static int const MAX_SIZE = 8;
 
 - (void)didMoveToDirection:(SnakeDirection)sdirection
 {
-    randomItera++;
+    // snake will be drunk only if drinks 15 beers of more
+    if(self.puntuation > 15) {
+        randomItera++;
+    }
     
     if(self.isDrunk) {
         randomN = arc4random_uniform(50);
-        randomItera = 0;
+        randomItera = -1;
         
-        if(sdirection == goDown)
-            sdirection = goLeft;
-        else if(sdirection == goUp)
-            sdirection = goRight;
-        else if(sdirection == goLeft)
-            sdirection = goDown;
-        else if(sdirection == goRight)
-            sdirection = goUp;
+        if(self.direction == goDown || self.direction == goUp) {
+            if(sdirection == goLeft)
+                sdirection = goRight;
+            else
+                sdirection = goLeft;
+        }
+        else if(self.direction == goLeft || self.direction == goRight) {
+            if(sdirection == goUp)
+                sdirection = goDown;
+            else
+                sdirection = goUp;
+        }
+        
     }
 
     //change the move direction
