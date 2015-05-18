@@ -61,7 +61,7 @@
     
 }
 
-- (IBAction)startGameButton:(id)pId {
+- (IBAction)startGameButton:(id)sender {
     
     self.title.hidden = YES;
     self.buttonStart.hidden = YES;
@@ -75,6 +75,10 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
     [self initGame];
+    
+}
+
+-(IBAction)info:(id)sender {
     
 }
 

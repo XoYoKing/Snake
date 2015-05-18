@@ -124,7 +124,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 - (void)didMoveToDirection:(SnakeDirection)sdirection
 {
     // snake will be drunk only if drinks 15 beers of more
-    if(self.puntuation > 15) {
+    if(self.puntuation > 15 && self.checkedDrunk) {
         randomItera++;
     }
     
