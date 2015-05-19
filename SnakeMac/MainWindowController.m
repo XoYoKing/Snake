@@ -57,6 +57,7 @@
     
     self.puntuation.hidden = YES;
     self.drunkLabel.hidden = YES;
+    self.gameOverLabel.hidden = YES;
     
     [self.recordP setStringValue:[NSString stringWithFormat:@"%ld", (long)[[NSUserDefaults standardUserDefaults] integerForKey:@"record"]]];
     
@@ -75,6 +76,7 @@
     self.puntuation.hidden = NO;
     self.recordP.hidden = YES;
     self.drunk.hidden = YES;
+    self.gameOverLabel.hidden = YES;
     self.walls.hidden = YES;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
@@ -87,12 +89,7 @@
     
 }
 
--(void)gameOver {
-    //NSLog(@"gameOver");
-    if(timer) {
-        [timer invalidate];     // set timer to 0
-        timer = nil;
-    }
+-(void)gameOver: (NSTimer *) t{
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     int prev = (int)[prefs integerForKey:@"record"];
@@ -107,9 +104,6 @@
     
     [prefs synchronize];
     
-    self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);
-    [self.snake.body removeAllObjects];
-    
     self.title.hidden = NO;
     self.buttonStart.hidden = NO;
     self.difficulty.hidden = NO;
@@ -118,6 +112,23 @@
     self.recordP.hidden = NO;
     self.drunk.hidden = NO;
     self.walls.hidden = NO;
+    self.gameOverLabel.hidden = YES;
+    
+}
+
+-(void) showGameOver {
+    self.gameOverLabel.hidden = NO;
+    
+    if(timer) {
+        [timer invalidate];     // set timer to 0
+        timer = nil;
+    }
+    
+    self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);
+    [self.snake.body removeAllObjects];
+
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(gameOver:) userInfo:nil repeats:NO];
     
 }
 
@@ -237,7 +248,7 @@
 }
 
 #pragma mark SnakeStateProtocol delegate
-- (void)snakeDidDie{ [self gameOver]; }
+- (void)snakeDidDie{ [self showGameOver]; }
 
 
 @end

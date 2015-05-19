@@ -58,6 +58,14 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-ig-fUh">
+                                <rect key="frame" x="593" y="347" width="20" height="20"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="QJ4-qj-XIw">
+                                    <font key="font" size="13" name="HelveticaNeue-Bold"/>
+                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1aq-YR-bOX">
                                 <rect key="frame" x="605" y="11" width="12" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="Hn1-0u-RvN">
@@ -102,12 +110,12 @@
                                     <font key="font" size="10" name="MANIFESTO"/>
                                 </buttonCell>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-ig-fUh">
-                                <rect key="frame" x="593" y="347" width="20" height="20"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="QJ4-qj-XIw">
-                                    <font key="font" size="13" name="HelveticaNeue-Bold"/>
-                                    <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsN-uQ-QFa">
+                                <rect key="frame" x="198" y="203" width="235" height="68"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="GAME OVER" id="4Jf-6r-1Gv">
+                                    <font key="font" size="101" name="Game-Over"/>
+                                    <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
@@ -136,6 +144,7 @@
                             <outlet property="difficulty" destination="55J-Ux-Ndo" id="Hhp-eM-E36"/>
                             <outlet property="drunk" destination="oye-fK-1WD" id="tbB-rR-3Vb"/>
                             <outlet property="drunkLabel" destination="7CR-u3-G1W" id="tI6-sn-Ssf"/>
+                            <outlet property="gameOverLabel" destination="fsN-uQ-QFa" id="x3H-Qw-4BS"/>
                             <outlet property="puntuation" destination="vwJ-ig-fUh" id="xzh-E8-Zt2"/>
                             <outlet property="recordLabel" destination="lyZ-la-IPF" id="SX1-r6-mmo"/>
                             <outlet property="recordP" destination="1aq-YR-bOX" id="OEd-CJ-vJg"/>
@@ -775,5 +784,14 @@
             </items>
         </menu>
         <userDefaultsController representsSharedInstance="YES" id="PMD-Wc-aPC"/>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="2Jb-ah-Y5k">
+            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="SYL-1n-kg4">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+        </textField>
     </objects>
 </document>

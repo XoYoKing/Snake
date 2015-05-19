@@ -24,6 +24,7 @@
 -(void)gameOver; // finish the game
 
 @property (assign) IBOutlet NSTextField *title;
+@property (assign) IBOutlet NSTextField *gameOverLabel;
 @property (assign) IBOutlet NSTextField *difficulty;
 @property (assign) IBOutlet NSButton *buttonStart;
 @property (assign) IBOutlet NSSlider *slider;

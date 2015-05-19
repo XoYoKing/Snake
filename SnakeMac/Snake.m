@@ -135,7 +135,6 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
         SnakeBody b = [[self.body objectAtIndex:i] rectValue];
         if(CGRectEqualToRect(hb, b)) {
             [self.delegate snakeDidDie];
-            NSLog(@"head touch body");
         }
     }
     
