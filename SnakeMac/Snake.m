@@ -50,7 +50,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 
 // if user resizes window
 -(void)updateScreenSize {
-    screenH = mainWindow.frame.size.height;
+    screenH = mainWindow.frame.size.height-22;
     screenW = mainWindow.frame.size.width;
 }
 
@@ -59,7 +59,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     SnakeBody hb = [[self.body objectAtIndex:0] rectValue];
     CGPoint hp = hb.origin;
     CGPoint p;
-    int newY;
+    int newY, newX;
     
     if(!self.hasEaten || [self.body count] > MAX_SIZE)
         [self.body removeLastObject];
@@ -70,8 +70,8 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     // height = 380px
     switch (self.direction) {
         case goUp:
-            if(hp.y < 0) {
-                newY = screenH;
+            if(hp.y <= 0) {
+                newY = screenH - BODY_SIZE;
             }
             else
                 newY = hp.y - BODY_SIZE;
@@ -79,14 +79,32 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
             p = CGPointMake(hp.x , newY);
             break;
         case goDown:
-            p = CGPointMake(hp.x , hp.y + BODY_SIZE);
+            if(hp.y >= screenH) {
+                newY = 0 + BODY_SIZE;
+            }
+            else
+                newY = hp.y + BODY_SIZE;
+
+            p = CGPointMake(hp.x , newY);
             break;
         case goLeft:
-            p = CGPointMake(hp.x - BODY_SIZE, hp.y);
+            if(hp.x <= 0) {
+                newX = screenW - BODY_SIZE;
+                NSLog(@"%d", screenW);
+            }
+            else
+                newX = hp.x - BODY_SIZE;
+            
+            p = CGPointMake(newX , hp.y);
             break;
         case goRight:
-            p = CGPointMake(hp.x + BODY_SIZE, hp.y);
-            break;
+            if(hp.x >= screenW) {
+                newX = 0 + BODY_SIZE;
+            }
+            else
+                newX = hp.x + BODY_SIZE;
+            
+            p = CGPointMake(newX , hp.y);            break;
         default:
             break;
     }
