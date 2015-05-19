@@ -59,16 +59,24 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     SnakeBody hb = [[self.body objectAtIndex:0] rectValue];
     CGPoint hp = hb.origin;
     CGPoint p;
+    int newY;
     
     if(!self.hasEaten || [self.body count] > MAX_SIZE)
         [self.body removeLastObject];
     else
         self.hasEaten = NO;
     
-    //add a new snake head
+    // add a new snake head
+    // height = 380px
     switch (self.direction) {
         case goUp:
-            p = CGPointMake(hp.x , hp.y - BODY_SIZE);
+            if(hp.y < 0) {
+                newY = screenH;
+            }
+            else
+                newY = hp.y - BODY_SIZE;
+            
+            p = CGPointMake(hp.x , newY);
             break;
         case goDown:
             p = CGPointMake(hp.x , hp.y + BODY_SIZE);
@@ -116,7 +124,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     
     // check if head if out of screen bounds
     if(hb.origin.x < 0 || hb.origin.x > screenW-5 || hb.origin.y < 0 || hb.origin.y > screenH-20) {
-        [self.delegate snakeDidDie];
+        //    [self.delegate snakeDidDie];
     }
     
 }

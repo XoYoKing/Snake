@@ -14,25 +14,26 @@
         <window title="Snake" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="pQW-hn-58L" userLabel="Snake">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="109" y="131" width="620" height="374"/>
+            <rect key="contentRect" x="109" y="131" width="625" height="380"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-            <value key="minSize" type="size" width="620" height="374"/>
+            <value key="minSize" type="size" width="625" height="380"/>
+            <value key="maxSize" type="size" width="625" height="380"/>
             <view key="contentView" id="b2g-HC-TNb">
-                <rect key="frame" x="0.0" y="0.0" width="620" height="374"/>
+                <rect key="frame" x="0.0" y="0.0" width="625" height="380"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="2xE-hC-kVB" customClass="MainWindowController">
-                        <rect key="frame" x="0.0" y="0.0" width="620" height="374"/>
+                        <rect key="frame" x="0.0" y="0.0" width="625" height="380"/>
                         <subviews>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NA4-2u-PBM">
-                                <rect key="frame" x="141" y="58" width="339" height="21"/>
+                                <rect key="frame" x="143" y="64" width="339" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="335" id="ehb-Rm-umr"/>
                                 </constraints>
                                 <sliderCell key="cell" state="on" alignment="left" minValue="40" maxValue="100" doubleValue="70" tickMarkPosition="above" sliderType="linear" id="MMs-Im-Qf7"/>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="55J-Ux-Ndo">
-                                <rect key="frame" x="260" y="85" width="100" height="24"/>
+                                <rect key="frame" x="263" y="91" width="100" height="24"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Dificulty" id="axX-kI-2hh">
                                     <font key="font" size="17" name="MANIFESTO"/>
                                     <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,7 +41,7 @@
                                 </textFieldCell>
                             </textField>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="v14-Ts-8g2">
-                                <rect key="frame" x="261" y="166" width="99" height="42"/>
+                                <rect key="frame" x="263" y="172" width="99" height="42"/>
                                 <buttonCell key="cell" type="bevel" title="START" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="T6M-D5-l9b">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="21" name="MANIFESTO"/>
@@ -50,7 +51,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-la-IPF">
-                                <rect key="frame" x="519" y="10" width="69" height="19"/>
+                                <rect key="frame" x="524" y="10" width="69" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Record " id="COa-3u-Wkh">
                                     <font key="font" size="13" name="MANIFESTO"/>
                                     <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,7 +59,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-ig-fUh">
-                                <rect key="frame" x="600" y="349" width="12" height="20"/>
+                                <rect key="frame" x="605" y="355" width="12" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="QJ4-qj-XIw">
                                     <font key="font" size="13" name="HelveticaNeue-Bold"/>
                                     <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -66,7 +67,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1aq-YR-bOX">
-                                <rect key="frame" x="595" y="11" width="12" height="17"/>
+                                <rect key="frame" x="600" y="11" width="12" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="Hn1-0u-RvN">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.1176470588" green="0.4039215686" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,7 +75,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eIi-ue-9nt">
-                                <rect key="frame" x="68" y="228" width="485" height="106"/>
+                                <rect key="frame" x="68" y="234" width="489" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="9oJ-gz-wTy"/>
                                 </constraints>
@@ -85,7 +86,7 @@
                                 </textFieldCell>
                             </textField>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="oye-fK-1WD">
-                                <rect key="frame" x="498" y="61" width="61" height="18"/>
+                                <rect key="frame" x="500" y="67" width="61" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="wq1-PV-Wie"/>
                                 </constraints>
@@ -95,7 +96,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7CR-u3-G1W">
-                                <rect key="frame" x="8" y="349" width="45" height="17"/>
+                                <rect key="frame" x="8" y="355" width="45" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drunk!" id="csd-fY-v8y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
