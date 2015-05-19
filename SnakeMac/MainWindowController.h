@@ -32,5 +32,6 @@
 @property (assign) IBOutlet NSTextField *recordP;
 @property (assign) IBOutlet NSTextField *drunkLabel;
 @property (assign) IBOutlet NSButton *drunk;
+@property (assign) IBOutlet NSButton *walls;
 
 @end

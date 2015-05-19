@@ -71,37 +71,32 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     // height = 380px
     switch (self.direction) {
         case goUp:
-            if(hp.y <= 0 && self.haveWalls) {
+            if(hp.y <= 0 && !self.haveWalls)
                 newY = screenH - BODY_SIZE;
-            }
             else
                 newY = hp.y - BODY_SIZE;
             
             p = CGPointMake(hp.x , newY);
             break;
         case goDown:
-            if(hp.y >= screenH && self.haveWalls) {
-                newY = 0 + BODY_SIZE;
-            }
+            if(hp.y >= screenH-BODY_SIZE && !self.haveWalls)
+                newY = 0;
             else
                 newY = hp.y + BODY_SIZE;
 
             p = CGPointMake(hp.x , newY);
             break;
         case goLeft:
-            if(hp.x <= 0 && self.haveWalls) {
+            if(hp.x <= 0 && !self.haveWalls)
                 newX = screenW - BODY_SIZE;
-                NSLog(@"%d", screenW);
-            }
             else
                 newX = hp.x - BODY_SIZE;
             
             p = CGPointMake(newX , hp.y);
             break;
         case goRight:
-            if(hp.x >= screenW && self.haveWalls) {
-                newX = 0 + BODY_SIZE;
-            }
+            if(hp.x >= screenW-BODY_SIZE && !self.haveWalls)
+                newX = 0;
             else
                 newX = hp.x + BODY_SIZE;
             
@@ -142,10 +137,10 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
         [self initFood];
     }
     
-    // check if head if out of screen bounds
-    if(hb.origin.x < 0 || hb.origin.x > screenW-5 || hb.origin.y < 0 || hb.origin.y > screenH-20) {
-        //    [self.delegate snakeDidDie];
-    }
+    // check if head if out of screen bounds only if haveWalls checked
+    if(self.haveWalls)
+        if(hb.origin.x < 0 || hb.origin.x > screenW-BODY_SIZE || hb.origin.y < 0 || hb.origin.y > screenH-BODY_SIZE)
+            [self.delegate snakeDidDie];
     
 }
 

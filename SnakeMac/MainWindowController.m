@@ -27,6 +27,7 @@
     [snake updateScreenSize];   // update screen size
     [snake initFood];           // set first food
     snake.checkedDrunk = self.drunk.state; // can the snake get drunk?
+    snake.haveWalls = self.walls.state; // does the snake die when crash a wall?
     moveDone = NO;  // check if snake has moved
     
     [self performSelectorOnMainThread:@selector(gamePlay) withObject:nil waitUntilDone:YES];
@@ -71,6 +72,7 @@
     self.puntuation.hidden = NO;
     self.recordP.hidden = YES;
     self.drunk.hidden = YES;
+    self.walls.hidden = YES;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
@@ -112,6 +114,7 @@
     self.recordLabel.hidden = NO;
     self.recordP.hidden = NO;
     self.drunk.hidden = NO;
+    self.walls.hidden = NO;
     
 }
 
