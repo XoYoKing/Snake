@@ -43,8 +43,17 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 }
 
 -(void) initFood {
-    int x = arc4random_uniform((screenW-5)/10)*10;
-    int y = arc4random_uniform((screenH-20)/10)*10;
+    int x = arc4random_uniform((screenW-BODY_SIZE)/10)*10;
+    int y = arc4random_uniform((screenH-BODY_SIZE)/10)*10;
+    
+    if(x == 0)
+        x = 10;
+    if(y == 0)
+        y = 10;
+    if(x > 340 && y < 40) {
+        x = 50;
+        y = 50;
+    }
     
     self.food = [[Food alloc] initWithX:x andY:y];
 }
@@ -139,7 +148,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     
     // check if head if out of screen bounds only if haveWalls checked
     if(self.haveWalls)
-        if(hb.origin.x < 0 || hb.origin.x > screenW-BODY_SIZE || hb.origin.y < 0 || hb.origin.y > screenH-BODY_SIZE)
+        if(hb.origin.x < BODY_SIZE || hb.origin.x > screenW-2*BODY_SIZE || hb.origin.y < BODY_SIZE || hb.origin.y > screenH-2*BODY_SIZE)
             [self.delegate snakeDidDie];
     
 }

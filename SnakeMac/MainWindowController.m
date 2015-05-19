@@ -8,12 +8,15 @@
 
 #import "MainWindowController.h"
 
-@implementation MainWindowController
+@implementation MainWindowController {
+    NSWindow *mainWindow;
+}
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         NSLog(@"startGame");
+        mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
         [self initGame];
     }
     return self;
@@ -134,6 +137,33 @@
         SnakeBody body = [[self.snake.body objectAtIndex:i] rectValue];
         NSRectFill(body);
     }
+    
+    NSImage *imageWall = [NSImage imageNamed: @"bricks.png"];
+    CGRect rect;
+    //630, 380
+    
+    if(imageWall && self.title.hidden){
+        if(self.walls.state) {
+            for(int i = 0; i < 630; i = i+10) {
+                rect = CGRectMake(i, 0, 10, 10);
+                [imageWall drawInRect:rect];
+            }
+            for(int i = 0; i < 630; i = i+10) {
+                rect = CGRectMake(i, 370, 10, 10);
+                [imageWall drawInRect:rect];
+            }
+            for(int i = 10; i < 370; i = i+10) {
+                rect = CGRectMake(0, i, 10, 10);
+                [imageWall drawInRect:rect];
+            }
+            for(int i = 10; i < 370; i = i+10) {
+                rect = CGRectMake(620, i, 10, 10);
+                [imageWall drawInRect:rect];
+            }
+        }
+    }
+ 
+
     
     // set the image of the food
     NSImage *image = [NSImage imageNamed: @"beer.png"];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D326231D1B0A43E10030C385 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D326231C1B0A43E10030C385 /* info.png */; };
+		D32D2ED31B0BCB2000ED6AEB /* bricks.png in Resources */ = {isa = PBXBuildFile; fileRef = D32D2ED21B0BCB2000ED6AEB /* bricks.png */; };
 		D34361271B07C7B400AC47E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D34361261B07C7B400AC47E3 /* AppDelegate.m */; };
 		D34361291B07C7B400AC47E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D34361281B07C7B400AC47E3 /* main.m */; };
 		D343612E1B07C7B400AC47E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D343612D1B07C7B400AC47E3 /* Images.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		D326231C1B0A43E10030C385 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		D32D2ED21B0BCB2000ED6AEB /* bricks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bricks.png; sourceTree = "<group>"; };
 		D34361201B07C7B400AC47E3 /* SnakeMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnakeMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34361241B07C7B400AC47E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34361251B07C7B400AC47E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D326231C1B0A43E10030C385 /* info.png */,
+				D32D2ED21B0BCB2000ED6AEB /* bricks.png */,
 				D3AEAB1A1B08D055006E2403 /* beer.png */,
 				D3AEAB181B08CF46006E2403 /* apple.png */,
 			);
@@ -251,6 +254,7 @@
 			files = (
 				D3AEAB1B1B08D055006E2403 /* beer.png in Resources */,
 				D3AEAB191B08CF46006E2403 /* apple.png in Resources */,
+				D32D2ED31B0BCB2000ED6AEB /* bricks.png in Resources */,
 				D34361491B07D23800AC47E3 /* MainMenu.xib in Resources */,
 				D343612E1B07C7B400AC47E3 /* Images.xcassets in Resources */,
 				D326231D1B0A43E10030C385 /* info.png in Resources */,
