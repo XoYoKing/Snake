@@ -34,6 +34,7 @@ typedef CGRect SnakeBody;
 @property (nonatomic) bool hasEaten;    // has eaten food
 @property (nonatomic) bool isDrunk;    // the snake is drunk
 @property (nonatomic) int puntuation;   // actual puntuation
+@property (nonatomic) bool haveWalls;    // does the snake die when crash with a wall?
 
 @property (nonatomic) bool checkedDrunk;   // can the snake get drunk?
 

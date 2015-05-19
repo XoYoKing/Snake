@@ -27,6 +27,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
         self.bodyLength = INITIAL_BODY_LENGTH;
         self.puntuation = 0;
         self.isDrunk = NO;
+        self.haveWalls = NO;
         randomItera = -1;
         randomN = arc4random_uniform(RANDOM_DRUNK);
         
@@ -50,7 +51,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 
 // if user resizes window
 -(void)updateScreenSize {
-    screenH = mainWindow.frame.size.height-22;
+    screenH = mainWindow.frame.size.height-22;  // 22 is the size of the menu bar
     screenW = mainWindow.frame.size.width;
 }
 
@@ -70,7 +71,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     // height = 380px
     switch (self.direction) {
         case goUp:
-            if(hp.y <= 0) {
+            if(hp.y <= 0 && self.haveWalls) {
                 newY = screenH - BODY_SIZE;
             }
             else
@@ -79,7 +80,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
             p = CGPointMake(hp.x , newY);
             break;
         case goDown:
-            if(hp.y >= screenH) {
+            if(hp.y >= screenH && self.haveWalls) {
                 newY = 0 + BODY_SIZE;
             }
             else
@@ -88,7 +89,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
             p = CGPointMake(hp.x , newY);
             break;
         case goLeft:
-            if(hp.x <= 0) {
+            if(hp.x <= 0 && self.haveWalls) {
                 newX = screenW - BODY_SIZE;
                 NSLog(@"%d", screenW);
             }
@@ -98,13 +99,14 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
             p = CGPointMake(newX , hp.y);
             break;
         case goRight:
-            if(hp.x >= screenW) {
+            if(hp.x >= screenW && self.haveWalls) {
                 newX = 0 + BODY_SIZE;
             }
             else
                 newX = hp.x + BODY_SIZE;
             
-            p = CGPointMake(newX , hp.y);            break;
+            p = CGPointMake(newX , hp.y);
+            break;
         default:
             break;
     }
