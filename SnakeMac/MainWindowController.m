@@ -8,6 +8,8 @@
 
 #import "MainWindowController.h"
 
+static int const BODY_SIZE = 10;    // size of each snake part
+
 @implementation MainWindowController {
     NSWindow *mainWindow;
 }
@@ -45,7 +47,10 @@
         self.drunkLabel.hidden = YES;
     
     [self.puntuation setStringValue:[NSString stringWithFormat:@"%d", self.snake.puntuation]];
-    [self.snake updateScreenSize];  // update screen size
+
+    // I changed my mind -> I won't allow the user to resize the screen
+    //[self.snake updateScreenSize];  // update screen size
+    
     [self.snake moveSnake];         // move snake
     moveDone = YES;
     [self setNeedsDisplay:YES];     // refresh view
@@ -77,6 +82,8 @@
     self.gameOverLabel.hidden = YES;
     self.walls.hidden = YES;
     
+    // slider minum = 40, maximum = 100
+    // I know it's a difficult calculation, but it's make to vary between 0.96s and 0.01s
     timer = [NSTimer scheduledTimerWithTimeInterval:((97-[self.slider intValue])%97)*0.01 target:self selector:@selector(gamePlay) userInfo:nil repeats:YES];
     
     [self initGame];
@@ -120,16 +127,17 @@
         timer = nil;
     }
     
-    self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);
-    [self.snake.body removeAllObjects];
+    self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);  // remove food from screen
+    [self.snake.body removeAllObjects]; // remove snake from screen
     
+    // show game over title for 5s
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(gameOver:) userInfo:nil repeats:NO];
     
 }
 
 -(void)restartGame {
     NSLog(@"restartGame");
-    //[self gameOver];
+    [self showGameOver];
     //[self initGame];
 }
 
@@ -144,27 +152,25 @@
         NSRectFill(body);
     }
     
+    // draw the wall
     NSImage *imageWall = [NSImage imageNamed: @"bricks.png"];
     CGRect rect;
     //630, 380
     
     if(imageWall){
         if(self.walls.state) {
-            for(int i = 0; i < 630; i = i+10) {
-                rect = CGRectMake(i, 30, 10, 10);
+            for(int i = 0; i < 630; i = i+BODY_SIZE) {
+                rect = CGRectMake(i, 30, BODY_SIZE, BODY_SIZE);
+                [imageWall drawInRect:rect];
+                rect = CGRectMake(i, 370, BODY_SIZE, BODY_SIZE);
                 [imageWall drawInRect:rect];
             }
-            for(int i = 0; i < 630; i = i+10) {
-                rect = CGRectMake(i, 370, 10, 10);
+            for(int i = 0; i < 370; i = i+BODY_SIZE) {
+                rect = CGRectMake(620, i, BODY_SIZE, BODY_SIZE);
                 [imageWall drawInRect:rect];
-            }
-            for(int i = 10; i < 370; i = i+10) {
-                rect = CGRectMake(0, i, 10, 10);
+                rect = CGRectMake(0, i, BODY_SIZE, BODY_SIZE);
                 [imageWall drawInRect:rect];
-            }
-            for(int i = 10; i < 370; i = i+10) {
-                rect = CGRectMake(620, i, 10, 10);
-                [imageWall drawInRect:rect];
+
             }
         }
     }
@@ -234,7 +240,7 @@
             break;
         }
     }
-    if ([character isEqualToString:@"n"]) {
+    if ([character isEqualToString:@"n"] || [character isEqualToString:@"N"]) {
         [self restartGame];
     }
 

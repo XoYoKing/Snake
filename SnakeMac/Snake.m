@@ -13,6 +13,7 @@ static int const RANDOM_DRUNK = 70; // how often is the snake drunk?
 static int const INITIAL_BODY_LENGTH = 5;   // initial size of the body
 static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 static int const HEADER_SIZE = 30;  // size of the header banner
+static int const WINDOW_BAR_SIZE = 22;  // size of the window bar
 
 @implementation Snake {
     NSWindow *mainWindow;
@@ -35,7 +36,7 @@ static int const HEADER_SIZE = 30;  // size of the header banner
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
         for(int i = 0; i < self.bodyLength; i++) {
-            SnakeBody b = CGRectMake(30, 80-i*10, BODY_SIZE, BODY_SIZE);
+            SnakeBody b = CGRectMake(HEADER_SIZE, (HEADER_SIZE+(INITIAL_BODY_LENGTH*BODY_SIZE))-i*BODY_SIZE, BODY_SIZE, BODY_SIZE);
             [self.body addObject:[NSValue valueWithRect:b]];
         }
         mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
@@ -58,7 +59,7 @@ static int const HEADER_SIZE = 30;  // size of the header banner
 
 // if user resizes window
 -(void)updateScreenSize {
-    screenH = mainWindow.frame.size.height-22;  // 22 is the size of the menu bar
+    screenH = mainWindow.frame.size.height - WINDOW_BAR_SIZE;  // 22 is the size of the menu bar
     screenW = mainWindow.frame.size.width;
 }
 
@@ -75,10 +76,9 @@ static int const HEADER_SIZE = 30;  // size of the header banner
         self.hasEaten = NO;
     
     // add a new snake head
-    // height = 380px
     switch (self.direction) {
         case goUp:
-            if(hp.y <= 30 && !self.haveWalls)
+            if(hp.y <= HEADER_SIZE && !self.haveWalls)
                 newY = screenH - BODY_SIZE;
             else
                 newY = hp.y - BODY_SIZE;
@@ -87,7 +87,7 @@ static int const HEADER_SIZE = 30;  // size of the header banner
             break;
         case goDown:
             if(hp.y >= screenH-BODY_SIZE && !self.haveWalls)
-                newY = 30;
+                newY = HEADER_SIZE;
             else
                 newY = hp.y + BODY_SIZE;
 
@@ -126,7 +126,6 @@ static int const HEADER_SIZE = 30;  // size of the header banner
 -(void) detectState {
     
     SnakeBody hb = [[self.body objectAtIndex:0] rectValue];
-    // handle touch itself, touch wall, eat food
     
     // check if head touch body
     for(int i = 1; i < [self.body count]; i++) {

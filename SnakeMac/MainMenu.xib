@@ -97,7 +97,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-la-IPF">
-                                        <rect key="frame" x="116" y="7" width="60" height="17"/>
+                                        <rect key="frame" x="121" y="7" width="60" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Record:" id="COa-3u-Wkh">
                                             <font key="font" size="11" name="Menlo-Bold"/>
                                             <color key="textColor" red="0.76470588235294112" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,7 +105,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aq-YR-bOX">
-                                        <rect key="frame" x="180" y="7" width="20" height="17"/>
+                                        <rect key="frame" x="185" y="7" width="20" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="Hn1-0u-RvN">
                                             <font key="font" size="11" name="Menlo-Bold"/>
                                             <color key="textColor" red="0.76470588235294112" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
