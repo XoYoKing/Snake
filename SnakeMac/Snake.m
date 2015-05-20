@@ -47,7 +47,7 @@ static int const HEADER_SIZE = 30;  // size of the header banner
     int x = arc4random_uniform((screenW-BODY_SIZE)/10)*10;
     int y = arc4random_uniform((screenH-BODY_SIZE)/10)*10;
     
-    if(y < 30) {
+    if(y <= 30) {
         y = 50;
     }
     if(x == 0)
