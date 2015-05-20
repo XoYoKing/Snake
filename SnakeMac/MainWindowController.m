@@ -55,7 +55,7 @@
 - (void)awakeFromNib {
     NSLog(@"startGame");
     
-    self.puntuation.hidden = YES;
+    //self.puntuation.hidden = YES;
     self.drunkLabel.hidden = YES;
     self.gameOverLabel.hidden = YES;
     
@@ -63,6 +63,7 @@
     
     [self setWantsLayer:YES];
     self.layer.backgroundColor = [[NSColor colorWithRed:0.698 green:0.859 blue:0.749 alpha:1] CGColor]; /*#247ba0*/
+    self.header.layer.backgroundColor = [[NSColor colorWithRed:0.463f green:0.482f blue:0.569f alpha:1.00f] CGColor];
     
 }
 
@@ -72,9 +73,6 @@
     self.buttonStart.hidden = YES;
     self.difficulty.hidden = YES;
     self.slider.hidden = YES;
-    self.recordLabel.hidden = YES;
-    self.puntuation.hidden = NO;
-    self.recordP.hidden = YES;
     self.drunk.hidden = YES;
     self.gameOverLabel.hidden = YES;
     self.walls.hidden = YES;
@@ -108,8 +106,6 @@
     self.buttonStart.hidden = NO;
     self.difficulty.hidden = NO;
     self.slider.hidden = NO;
-    self.recordLabel.hidden = NO;
-    self.recordP.hidden = NO;
     self.drunk.hidden = NO;
     self.walls.hidden = NO;
     self.gameOverLabel.hidden = YES;
@@ -126,7 +122,6 @@
     
     self.snake.food.foodRect = CGRectMake(0, 0, 0, 0);
     [self.snake.body removeAllObjects];
-
     
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(gameOver:) userInfo:nil repeats:NO];
     
@@ -134,7 +129,7 @@
 
 -(void)restartGame {
     NSLog(@"restartGame");
-    [self gameOver];
+    //[self gameOver];
     //[self initGame];
 }
 
@@ -153,10 +148,10 @@
     CGRect rect;
     //630, 380
     
-    if(imageWall && self.title.hidden){
+    if(imageWall){
         if(self.walls.state) {
             for(int i = 0; i < 630; i = i+10) {
-                rect = CGRectMake(i, 0, 10, 10);
+                rect = CGRectMake(i, 30, 10, 10);
                 [imageWall drawInRect:rect];
             }
             for(int i = 0; i < 630; i = i+10) {
@@ -174,8 +169,6 @@
         }
     }
  
-
-    
     // set the image of the food
     NSImage *image = [NSImage imageNamed: @"beer.png"];
     if(image)

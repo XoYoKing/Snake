@@ -12,6 +12,7 @@ static int const MAX_SIZE = 80;     // max size of the body
 static int const RANDOM_DRUNK = 70; // how often is the snake drunk?
 static int const INITIAL_BODY_LENGTH = 5;   // initial size of the body
 static int const BODY_SIZE = 10;    // size of the rectangle of each body part
+static int const HEADER_SIZE = 30;  // size of the header banner
 
 @implementation Snake {
     NSWindow *mainWindow;
@@ -34,7 +35,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
         self.body = [NSMutableArray arrayWithCapacity:MAX_SIZE];
         
         for(int i = 0; i < self.bodyLength; i++) {
-            SnakeBody b = CGRectMake(10, 50-i*10, BODY_SIZE, BODY_SIZE);
+            SnakeBody b = CGRectMake(30, 80-i*10, BODY_SIZE, BODY_SIZE);
             [self.body addObject:[NSValue valueWithRect:b]];
         }
         mainWindow = [[[NSApplication sharedApplication] windows] objectAtIndex:0];
@@ -43,7 +44,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
 }
 
 -(void) initFood {
-    int x = arc4random_uniform((screenW-BODY_SIZE)/10)*10;
+    int x = arc4random_uniform((screenW-BODY_SIZE-30)/10)*10;
     int y = arc4random_uniform((screenH-BODY_SIZE)/10)*10;
     
     if(x == 0)
@@ -80,7 +81,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     // height = 380px
     switch (self.direction) {
         case goUp:
-            if(hp.y <= 0 && !self.haveWalls)
+            if(hp.y <= 30 && !self.haveWalls)
                 newY = screenH - BODY_SIZE;
             else
                 newY = hp.y - BODY_SIZE;
@@ -89,7 +90,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
             break;
         case goDown:
             if(hp.y >= screenH-BODY_SIZE && !self.haveWalls)
-                newY = 0;
+                newY = 30;
             else
                 newY = hp.y + BODY_SIZE;
 
@@ -147,7 +148,7 @@ static int const BODY_SIZE = 10;    // size of the rectangle of each body part
     
     // check if head if out of screen bounds only if haveWalls checked
     if(self.haveWalls)
-        if(hb.origin.x < BODY_SIZE || hb.origin.x > screenW-2*BODY_SIZE || hb.origin.y < BODY_SIZE || hb.origin.y > screenH-2*BODY_SIZE)
+        if(hb.origin.x < BODY_SIZE || hb.origin.x > screenW-2*BODY_SIZE || hb.origin.y < BODY_SIZE+HEADER_SIZE || hb.origin.y > screenH-2*BODY_SIZE)
             [self.delegate snakeDidDie];
     
 }

@@ -21,7 +21,7 @@
 @property (nonatomic) Snake *snake; // snake object
 
 -(void)initGame; // start the game
--(void)gameOver; // finish the game
+-(void)gameOver: (NSTimer *) t; // finish the game
 
 @property (assign) IBOutlet NSTextField *title;
 @property (assign) IBOutlet NSTextField *gameOverLabel;
@@ -34,5 +34,7 @@
 @property (assign) IBOutlet NSTextField *drunkLabel;
 @property (assign) IBOutlet NSButton *drunk;
 @property (assign) IBOutlet NSButton *walls;
+
+@property (assign) IBOutlet NSView *header;
 
 @end
