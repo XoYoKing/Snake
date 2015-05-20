@@ -44,17 +44,14 @@ static int const HEADER_SIZE = 30;  // size of the header banner
 }
 
 -(void) initFood {
-    int x = arc4random_uniform((screenW-BODY_SIZE-30)/10)*10;
+    int x = arc4random_uniform((screenW-BODY_SIZE)/10)*10;
     int y = arc4random_uniform((screenH-BODY_SIZE)/10)*10;
     
-    if(x == 0)
-        x = 10;
-    if(y == 0)
-        y = 10;
-    if(x > 340 && y < 40) {
-        x = 50;
+    if(y < 30) {
         y = 50;
     }
+    if(x == 0)
+        x = 10;
     
     self.food = [[Food alloc] initWithX:x andY:y];
 }
